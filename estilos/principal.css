@@ -1,0 +1,22 @@
+.carousel-item img {
+  height: 600px; 
+  object-fit: cover; 
+}
+.header .dropdown-menu a {
+  color: #000;
+  text-decoration: none;
+}
+.carousel-item a {
+  color: #000;
+  text-decoration: none;
+}
+.footer {
+  background-color: #333;
+}
+.logo {
+  max-width: 100px; 
+}
+body{
+  background-color: rgb(180, 185, 185);
+  font-family: cursive;
+}
