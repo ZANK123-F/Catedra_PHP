@@ -48,40 +48,40 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <a href="Cafeteria_1.php">
-            <img src="https://phantom-marca.unidadeditorial.es/c9ede2e9ff24c60e07218519c3e67fe6/resize/828/f/jpg/assets/multimedia/imagenes/2022/09/16/16633380346741.jpg" class="d-block w-100" alt="cafeteria 1">
+            <img src="https://phantom-marca.unidadeditorial.es/c9ede2e9ff24c60e07218519c3e67fe6/resize/828/f/jpg/assets/multimedia/imagenes/2022/09/16/16633380346741.jpg" class="d-block w-100" alt="cafeteria1">
           </a>
         </div>
         <div class="carousel-item">
           <a href="Cafeteria_2.php">
-            <img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da842e65addae78c6ff159fd1f1d" class="d-block w-100" alt="...">
+            <img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da842e65addae78c6ff159fd1f1d" class="d-block w-100" alt="cafeteria2">
           </a>
         </div>
         <div class="carousel-item">
           <a href="Cafeteria_3.php">
-            <img src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltf83b9578c2cc8c82/6426d520c43e6b68f5bd82cc/GOAL_-_Blank_WEB_-_Facebook_-_2023-03-31T134149.308.png?auto=webp&format=pjpg&width=3840&quality=60" class="d-block w-100" alt="...">
+            <img src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltf83b9578c2cc8c82/6426d520c43e6b68f5bd82cc/GOAL_-_Blank_WEB_-_Facebook_-_2023-03-31T134149.308.png?auto=webp&format=pjpg&width=3840&quality=60" class="d-block w-100" alt="cafeteria3">
           </a>
         </div>
         <div class="carousel-item">
           <a href="Cafeteria_4.php">
-            <img src="https://www.eluniversal.com.mx/resizer/n3EFqWZ2GX3i-UZBFU09OF-2wHY=/1100x666/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/ZYL23FNTHZE6PH3QWDX23NITHM.jpg" class="d-block w-100" alt="...">
+            <img src="https://www.eluniversal.com.mx/resizer/n3EFqWZ2GX3i-UZBFU09OF-2wHY=/1100x666/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/ZYL23FNTHZE6PH3QWDX23NITHM.jpg" class="d-block w-100" alt="cafeteria4">
           </a>
         </div>
 
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span class="visually-hidden">anterior</span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span class="visually-hidden">siguiente</span>
       </button>
     </div>
   </div>
 
-  <footer class="footer bg-dark py-3 mt-5">
+  <footer class="footer bg-dark py-4 mt-5">
     <div class="container text-center text-light">
-      Página creada por los Tec de Ingeniería en Ciencias de la Computación
+      Página creada por los Tecnigods  de Ingeniería en Ciencias de la Computación dela UDB
       <br>
      <a href=""><i class="fab fa-facebook mx-2"></i></a> 
      <a href="">   <i class="fab fa-twitter mx-2"></i></a> 
