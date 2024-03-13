@@ -89,7 +89,7 @@
     <div class="row">
       <div class="col-md-4 mb-4">
         <div class="food-card">
-          <a href="detalle_plato1.php">
+          <a href="Cafeteria_4_detalle_plato1.php">
             <img src="https://cdn.pixabay.com/photo/2015/07/12/14/26/coffee-842020_1280.jpg?text=Plato+1" class="img-fluid" alt="Plato 1">
           </a>
           <div class="food-card-body">
