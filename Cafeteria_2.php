@@ -91,11 +91,11 @@
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
 
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">Messi Campeon</h5>
               <img src="./img/platillo1.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -104,11 +104,11 @@
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">Chongenga</h5>
               <img src="./img/platillo2.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 3</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -117,11 +117,11 @@
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">Pupusas</h5>
               <img src="./img/platillo3.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 4.50</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -130,11 +130,11 @@
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">Elote loco</h5>
               <img src="./img/platillo4.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 8.90</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -143,11 +143,11 @@
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">VIVA MESSI</h5>
               <img src="./img/platillo5.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 9.75</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -156,11 +156,11 @@
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">VIVA EL COMUNISMO</h5>
               <img src="./img/platillo1.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 0.99</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -169,11 +169,11 @@
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">Cancerbero</h5>
               <img src="./img/platillo2.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 9.6</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -182,11 +182,11 @@
             </div>
           </div>
           <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
               <h5 class="card-title pt-2 text-center text-primary">Rapunzel</h5>
               <img src="./img/platillo3.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-white-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 0.11</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -224,7 +224,7 @@
       <br><br>
       <div class="row mx-4">
         <div class="col">
-          <h3 class="itemCartTotal text-white">Total: 0</h3>
+          <h3 class="itemCartTotal text-black">Total: 0</h3>
         </div>
         <div class="col d-flex justify-content-end">
           <button class="btn btn-success">COMPRAR</button>
