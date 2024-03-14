@@ -21,15 +21,13 @@
         </div>
         <div class="col-6 text-end flex-sm-row flex-sm-wrap">
           <div class="dropdown d-inline">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              Cafeterias
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="Cafeteria_1.php">Cafeteria  la rana</a></li>
-              <li><a class="dropdown-item" href="Cafeteria_2.php">Cafeteria  el delicisoso</a></li>
-              <li><a class="dropdown-item" href="Cafeteria_3.php">Cafeteria  los 3 puerquitos</a></li>
-              <li><a class="dropdown-item" href="Cafeteria_4.php">Cafeteria  pupusas locas</a></li>
-            </ul>
+          
+          <button class="btn btn-secondary" type="button" onclick="window.location.href='Comedores.php'">
+           Cafeterias
+          </button>
+
+
+
           </div>
           <button class="btn btn-secondary mx-2 flex-sm-wrap" href="#" >Sobre Nosotros</button>
           <button class="btn btn-secondary mx-2 flex-sm-wrap"  href="# ">Acerca de</button>
