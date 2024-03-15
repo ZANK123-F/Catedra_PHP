@@ -7,9 +7,9 @@
 </head>
 <body>
   <h1>
-    para mi amorcita hermosa de mi corazon
+    para mi amorcita hermosa de mi corazon........
   </h1>
-  <h1>Viendo que aca voy ha hacer cambios a mis repositorios ojndlojdmlsdo jvmds,lkmvcd,skdcjmkzxwow</h1>
+  <h1>Viendo que aca voy ha hacer cambios a mis repositorios</h1>
   
 </body>
 </html>
