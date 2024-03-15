@@ -1,9 +1,83 @@
-body {
-  background-color: rgb(180, 185, 185);
-font-family: cursive;
-  
+.btn-primary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+  font-weight: 1700;
+  border-radius: 0;
+  text-transform: uppercase;
+  padding: 8px 20px; /* Ajustar el relleno del botón */
+  width: 180px; /* Ajustar el ancho del botón */
+  height: 45px; /* Ajustar la altura del botón */
+  margin: 10px; /* Ajustar el margen del botón */
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.card{
-  background-color:gray;
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+  font-weight: 1700;
+  border-radius: 0;
+  text-transform: uppercase;
+  padding: 6px 16px; /* Ajustar el relleno del botón */
+  width: 150px; /* Ajustar el ancho del botón */
+  height: 40px; /* Ajustar la altura del botón */
+  margin: 10px; /* Ajustar el margen del botón */
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, #0230ff, transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+  position: absolute;
+}
+
+.btn-primary:hover {
+  background: #0230ff;
+  color: #fff;
+  box-shadow: 0 0 20px 5px #0230ff;
+}
+
+.btn-secondary::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, #6c757d, transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+  position: absolute;
+}
+
+.btn-secondary:hover {
+  background: #6c757d;
+  color: #fff;
+  box-shadow: 0 0 20px 5px #6c757d;
+}
+
+body {
+  background-color: aquamarine; /* Cambiar el color de fondo */
+  font-family: cursive;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  height: 80vh; /* Ajustar el tamaño al 80% de la altura de la ventana */
+  margin: 0;
+}
+.card {
+  background-color: #000; /* Cambiar el color de fondo del bloque de inicio de sesión */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Añadir una sombra */
 }

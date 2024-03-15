@@ -48,7 +48,7 @@
                     <a href="Cafeteria_2.php" class="btn-1">Comedor 2</a>
                 </div>
                 <div class="information-a1">
-                    <img src="img/reservation.jpg" alt="">
+                    <img src="img/cafeteria2.jpg" alt="">
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
 
             <div class="information-2">
                 <div class="information-b1">
-                    <img src="img/reservation2.jpg" alt="">
+                    <img src="img/cafeteria1.png" alt="">
                 </div>
                 <div class="information-c1">
                     <h3>Comedores sur</h3>

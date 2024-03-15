@@ -11,9 +11,9 @@
 </head>
 
 <style>
-    body {
-      background-color: #333;
-      font-family: cursive;
+     body {
+      background-color: #eed393f6;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
   </style>
 <body>
