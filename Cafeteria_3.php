@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#bla"  />
-    <title>Ventas de Alimentoss</title>
+    <title>Productos UDB</title>
     
     <link 
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -14,7 +14,13 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css/img." />
+    <style>
+    .card-img-top {
+            height: 200px;
+            object-fit: cover; 
+        }
+        </style>
   </head>
   <body>
     <header class="container-fluid bg-dark position-sticky top-0">
@@ -86,7 +92,7 @@
         role="tabpanel"
         aria-labelledby="pills-profile-tab"
       >
-        <h2 class="h4 m-4 text-primary">Productos</h2>
+        <h2 class="h4 m-4 text-white">Cafeteria 3</h2>
 
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
 
@@ -253,5 +259,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/scripts.js"></script>
-  </body>
+  </body>
 </html>
