@@ -8,20 +8,38 @@
   <link rel="stylesheet" href="estilos/registro.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-</head>
-
-<style>
-     body {
-      background-color: #eed393f6;
+  <style>
+    body {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 0; /* Elimina el margen predeterminado del cuerpo */
+      padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+      background-image: url('https://s1.1zoom.me/big0/612/Mushrooms_Bibimbap_Fried_egg_Bokeh_Sliced_food_593325_1280x853.jpg'); /* Reemplaza 'ruta/de/tu/imagen.jpg' con la ruta de tu imagen */
+      background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el cuerpo */
+      background-position: center; /* Centra la imagen de fondo */
+    }
+
+    .container {
+      padding: 20px; /* Añade un poco de espacio alrededor del formulario */
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.7); /* Añade un fondo semi-transparente al formulario */
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
     }
   </style>
+</head>
+
 <body>
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="card shadow-lg p-4">
-          <h2 class="mb-4    text-center " >Registro de Usuario</h2>
+          <h2 class="mb-4">Registro de Usuario</h2>
           <form action="Registrarse.php" method="post">
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre:</label>

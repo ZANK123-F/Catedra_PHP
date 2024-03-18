@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    font-size:25px;
+    background-image: url(https://s1.1zoom.me/big0/612/Mushrooms_Bibimbap_Fried_egg_Bokeh_Sliced_food_593325_1280x853.jpg);
+    background-size: cover; /* La imagen de fondo cubrirá todo el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .box {
+    width: 450px; /* Ajusta el tamaño del cuadro según sea necesario */
+    background-color: rgb(253, 253, 253,0.5);
+    border: 0px solid rgb(0, 0, 0); /* Borde negro para resaltar */
+    border-radius: 20px ; /* Ajusta el radio de borde según sea necesario */
+  }
+  
+  .content {
+    padding: 19px;
+    text-align: center;
+  }
+  

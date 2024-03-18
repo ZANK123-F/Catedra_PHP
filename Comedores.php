@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventas de Comidas</title>
     <link rel="stylesheet" href="estilo.css">
+    <style>
+        .logo img {
+            width: 150px;
+            height: auto; 
+            border-radius: 80%
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="menu container">
-            <a href="#" class="logo">Logo</a>
+            <a href="#" class="logo"><img src="img/logo.png" alt="Logo"></a>
             <input type="checkbox" id="menu" />
             <label for="menu">
                 <img src="img/menu.png" class="menu-icono" alt="menu">
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a href="m">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
+                <li><a href="Sobre_Nosotros.php">Sobre Nosotros</a></li>
+                    <li><a href="Acerca_de.php">Acerca de</a></li>
+                    <li><a href="Iniciarsesion.php">Iniciar Sesion</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,14 +36,11 @@
                     Comida Especial para los estudiantes
                 </p>
             </div>
-
         </div>
     </header>
 
     <section class="information container">
-
         <div class="information-content">
-
             <div class="information-1">
                 <div class="information-c1">
                     <h3>Comedores Norte</h3>
@@ -51,9 +54,6 @@
                     <img src="img/cafeteria2.jpg" alt="">
                 </div>
             </div>
-
-
-
             <div class="information-2">
                 <div class="information-b1">
                     <img src="img/cafeteria1.png" alt="">
@@ -70,17 +70,11 @@
         </div>
     </section>
 
-
-
-
     <Footer class="footer">
-
         <div class="footer-content container"> 
-            
-        <div class="link"> 
-                <span class="logo"></span>
+            <div class="link"> 
+                <a href="#" class="logo"><img src="img/logo.png" alt="Logo"></a>
             </div>   
-
             <div class="link">
                 <ul>
                     <li><a href="https://www.instagram.com/udbelsalvador/?hl=es">Instagram</a></li>
@@ -89,11 +83,8 @@
                     <li><a href="https://web.whatsapp.com/">Whatsapp</a></li>
                     <li><a href="https://www.udb.edu.sv/udb/">Pagina</a></li>
                 </ul>
-
             </div>
         </div>
-
     </Footer>
-
 </body>
 </html>
