@@ -22,11 +22,10 @@
                 <img src="img/menu.png" class="menu-icono" alt="menu">
             </label>
             <nav class="navbar">
-                <ul>
-                <li><a href="Sobre_Nosotros.php">Sobre Nosotros</a></li>
+                <ul><li><a href="Reservacion.php">Reservacion</a></li>
+                    <li><a href="Sobre_Nosotros.php">Sobre Nosotros</a></li>
                     <li><a href="Acerca_de.php">Acerca de</a></li>
                     <li><a href="Iniciarsesion.php">Iniciar Sesion</a></li>
-                </ul>
             </nav>
         </div>
         <div class="header-content container">
