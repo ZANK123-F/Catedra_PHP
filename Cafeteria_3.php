@@ -33,7 +33,7 @@
         <a
   class="nav-link"
   id="pills-home-tab"
-  href="Comedores.php"
+  href="index.php"
   role="tab"
   aria-controls="pills-home"
   aria-selected="true"
@@ -54,6 +54,25 @@
             >Productos</a
           >
         </li>
+
+
+
+
+        <li class="nav-item" role="presentation">
+  <a
+    class="nav-link"
+    href="Reservacion3.php" 
+    role="tab"
+    aria-controls="reserva"
+    aria-selected="false"
+  >Reservar Evento de Producto</a>
+</li>
+
+
+
+
+
+
         <li class="nav-item" role="presentation">
           <a
             class="nav-link"
@@ -230,7 +249,7 @@
       <br><br>
       <div class="row mx-4">
         <div class="col">
-          <h3 class="itemCartTotal text-black">Total: 0</h3>
+          <h3 class="itemCartTotal text-white">Total: 0</h3>
         </div>
         <div class="col d-flex justify-content-end">
           <button class="btn btn-success">COMPRAR</button>

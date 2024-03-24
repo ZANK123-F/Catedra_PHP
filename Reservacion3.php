@@ -76,17 +76,17 @@
 
 
   <div id="productosContainer" class="container" style="display: none;">
-   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+  <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
 
 <div class="col d-flex justify-content-center mb-4">
   <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
     <h5 class="card-title pt-2 text-center text-primary"> Desayuno</h5>
-    <img src="./img/desayuno.jpeg" class="card-img-top" alt="...">
+    <img src="./img/platillo1.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Un delicioso desayuno para empezar el día con energía..</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 3.50</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
@@ -94,25 +94,25 @@
 <div class="col d-flex justify-content-center mb-4">
   <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
     <h5 class="card-title pt-2 text-center text-primary">Sandwich</h5>
-    <img src="./img/sadwich1.jpeg" class="card-img-top" alt="...">
+    <img src="./img/Sandwich.avif" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Un delicioso sandwich con ingredientes frescos.b</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 1.00</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 3</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
 </div>
 <div class="col d-flex justify-content-center mb-4">
   <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-    <h5 class="card-title pt-2 text-center text-primary">Burritos</h5>
-    <img src="./img/burrito.webp" class="card-img-top" alt="...">
+    <h5 class="card-title pt-2 text-center text-primary">Sopa de pollo</h5>
+    <img src="./img/Sopi.avif" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Deliciosos burritos mexicanos rellenos de carne y frijoles.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 3.50</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 4.50</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
@@ -120,12 +120,12 @@
 <div class="col d-flex justify-content-center mb-4">
   <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
     <h5 class="card-title pt-2 text-center text-primary">Lasaña</h5>
-    <img src="./img/lasagna.jpeg" class="card-img-top" alt="...">
+    <img src="./img/lasa.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Deliciosa lasaña casera con capas de pasta, carne molida, salsa de tomate y queso derretido.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 3.00</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 8.90</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
@@ -135,23 +135,23 @@
     <h5 class="card-title pt-2 text-center text-primary">Carne</h5>
     <img src="./img/carne.webp" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Delicioso filete de carne a la parrilla, perfectamente sazonado y jugoso.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 4.00</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 9.75</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
 </div>
 <div class="col d-flex justify-content-center mb-4">
   <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-    <h5 class="card-title pt-2 text-center text-primary">Hamburguesa</h5>
-    <img src="./img/hamburguesa.jpeg" class="card-img-top" alt="...">
+    <h5 class="card-title pt-2 text-center text-primary">Hamburgesa</h5>
+    <img src="./img/hamburger.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Deliciosa hamburguesa casera con carne de primera calidad y aderezos frescos.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 2.50</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 0.99</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
@@ -159,12 +159,12 @@
 <div class="col d-flex justify-content-center mb-4">
   <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
     <h5 class="card-title pt-2 text-center text-primary">Papas fritas</h5>
-    <img src="./img/papas.jpeg" class="card-img-top" alt="...">
+    <img src="./img/papas.png" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Crujientes papas fritas doradas y sazonadas a la perfección.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 1.25</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 9.6</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
@@ -172,74 +172,18 @@
 <div class="col d-flex justify-content-center mb-4">
   <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
     <h5 class="card-title pt-2 text-center text-primary">Frescos</h5>
-    <img src="./img/frescos1.jpeg" class="card-img-top" alt="...">
+    <img src="./img/frescos.webp" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text text-black-50 description">Refrescantes bebidas naturales hechas con frutas frescas y deliciosas.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 0.50</span></h5>
+      <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 class="text-primary">Precio: <span class="precio">$ 0.11</span></h5>
       <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
+      <button  class="btn btn-primary button">Añadir a Carrito</button>
     </div>
     </div>
   </div>
 </div>
 
-<div class="col d-flex justify-content-center mb-4">
-  <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-    <h5 class="card-title pt-2 text-center text-primary">Sodas</h5>
-    <img src="./img/sodas.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text text-black-50 description">Refrescantes bebidas carbonatadas en una variedad de sabores.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 1.00</span></h5>
-      <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
-    </div>
-    </div>
-  </div>
-</div>
 
-<div class="col d-flex justify-content-center mb-4">
-  <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-    <h5 class="card-title pt-2 text-center text-primary">Pupusas</h5>
-    <img src="./img/pupusas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text text-black-50 description">Deliciosas pupusas rellenas de queso, frijoles o carne, acompañadas de curtido y salsa de tomate.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 0.50</span></h5>
-      <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
-    </div>
-    </div>
-  </div>
-</div>
-
-<div class="col d-flex justify-content-center mb-4">
-  <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-    <h5 class="card-title pt-2 text-center text-primary">Tacos</h5>
-    <img src="./img/tacos.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text text-black-50 description">Deliciosos tacos mexicanos de carne asada, pollo, cerdo o pescado.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 3.50</span></h5>
-      <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
-    </div>
-    </div>
-  </div>
-</div>
-
-<div class="col d-flex justify-content-center mb-4">
-  <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-    <h5 class="card-title pt-2 text-center text-primary">Tortas</h5>
-    <img src="./img/tortas.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text text-black-50 description">Deliciosas tortas preparadas con pan fresco, rellenas de carne, pollo, jamón, queso, aguacate, lechuga, y tomate.</p>
-      <h5 class="text-primary">Precio: <span class="precio">$ 2.00</span></h5>
-      <div class="d-grid gap-2">
-      <button  class="btn btn-primary button">Reservar</button>
-    </div>
-    </div>
-  </div>
-</div>
-
-</div>
 </div>
 
 

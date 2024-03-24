@@ -33,13 +33,14 @@
         <a
   class="nav-link"
   id="pills-home-tab"
-  href="Comedores.php"
+  href="index.php"
   role="tab"
   aria-controls="pills-home"
   aria-selected="true"
   >Home</a>
 
           
+
         </li>
         <li class="nav-item" role="presentation">
           <a
@@ -54,6 +55,25 @@
             >Productos</a
           >
         </li>
+
+
+
+
+
+        <li class="nav-item" role="presentation">
+  <a
+    class="nav-link"
+    href="Reservacion.php" 
+    role="tab"
+    aria-controls="reserva"
+    aria-selected="false"
+  >Reservar Evento de Producto</a>
+</li>
+
+
+
+
+        
         <li class="nav-item" role="presentation">
           <a
             class="nav-link"
@@ -69,6 +89,8 @@
         </li>
       </ul>
     </header>
+
+    
 
     <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
     Producto Añadido al carrito!
@@ -260,6 +282,16 @@
         </div>
 
       </div>
+      
+
+
+      
+
+
+
+
+
+
       <div
         class="tab-pane fade carrito"
         id="pills-contact"
@@ -283,12 +315,13 @@
       <br><br>
       <div class="row mx-4">
         <div class="col">
-          <h3 class="itemCartTotal text-black">Total: 0</h3>
+          <h3 class="itemCartTotal text-white">Total: 0</h3>
         </div>
         <div class="col d-flex justify-content-end">
           <button class="btn btn-success">COMPRAR</button>
         </div>
       </div>
+      
       
       </div>
     </div>

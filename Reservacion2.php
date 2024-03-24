@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#bla"  />
-    <title>Ventas de Alimentos</title>
-    
-    <link 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="stiles.css">
+  <title>Reservacion de Productos</title>
+
+
+  <link 
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+
+
 
     <link rel="stylesheet" href="css/styles.css/img." />
     <style>
@@ -21,9 +24,11 @@
             object-fit: cover; 
         }
         </style>
-  </head>
-  <body>
-    <header class="container-fluid bg-dark position-sticky top-0">
+
+</head>
+<body style="background-color: #24303c;">
+
+<header class="container-fluid bg-dark position-sticky top-0">
       <ul
         class="nav nav-pills mb-3 py-3 container"
         id="pills-tab"
@@ -39,77 +44,39 @@
   aria-selected="true"
   >Home</a>
 
-          
-        </li>
-        <li class="nav-item" role="presentation">
-          <a
-            class="nav-link active"
-            id="pills-profile-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-profile"
-            type="button"
-            role="tab"
-            aria-controls="pills-profile"
-            aria-selected="false"
-            >Productos</a
-          >
-        </li>
-
-
-        <li class="nav-item" role="presentation">
+  <li class="nav-item" role="presentation">
   <a
-    class="nav-link"
-    href="Reservacion2.php" 
+    class="nav-link active"
+    id="pills-profile-tab"
+    href="Cafeteria_1.php" 
     role="tab"
-    aria-controls="reserva"
+    aria-controls="pills-profile"
     aria-selected="false"
-  >Reservar Evento de Producto</a>
+    >Productos</a
+  >
 </li>
 
-
-
-
-        <li class="nav-item" role="presentation">
-          <a
-            class="nav-link"
-            id="pills-contact-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-contact"
-            type="button"
-            role="tab"
-            aria-controls="pills-contact"
-            aria-selected="false"
-            >Carrito</a
-          >
-        </li>
       </ul>
     </header>
 
-    <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
-    Producto Añadido al carrito!
-    </div>
-    <div class="alert container position-sticky top-0 alert-danger remove" role="alert">
-      Producto removido!
-    </div>
+  <section class="form-register">
+    <h4>Reserva de Productos</h4>
+    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+    <input class="controls" type="text" name="correo" id="correo" placeholder="Ingrese su carnet">
+    <input class="controls" type="date" name="fecha_reserva" id="fecha_reserva" placeholder="Fecha de Reserva">
 
-    <div class="tab-content" id="pills-tabContent">
-      <div
-        class="tab-pane fade "
-        id="pills-home"
-        role="tabpanel"
-        aria-labelledby="pills-home-tab"
-      >
-        1
-      </div>
-      <div
-        class="tab-pane fade show active container"
-        id="pills-profile"
-        role="tabpanel"
-        aria-labelledby="pills-profile-tab"
-      >
-        <h2 class="h4 m-4 text-white">Cafeteria 2</h2>
+    <input class="controls" type="text" name="productos_disponibles" id="productos_disponibles" placeholder="Productos disponibles">
+    <button id="mostrarProductosBtn" class="botons">Ver Productos Disponibles</button>
+    <button id="reservarProductosBtn" class="botons">Reservar Productos</button>
 
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+    
+  </section>
+
+
+
+  <div id="productosContainer" class="container" style="display: none;">
+  <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
 
           <div class="col d-flex justify-content-center mb-4">
             <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
@@ -219,60 +186,63 @@
 
         </div>
 
-      </div>
-      <div
-        class="tab-pane fade carrito"
-        id="pills-contact"
-        role="tabpanel"
-        aria-labelledby="pills-contact-tab"
-      >
-      <br>
-      <table class="table table-dark table-hover">
-        <thead>
-          <tr class="text-primary">
-            <th scope="col">#</th>
-            <th scope="col">Productos</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-          </tr>
-        </thead>
-        <tbody class="tbody">
-          
-        
-          
-        </tbody>
-      </table>
-      <br><br>
-      <div class="row mx-4">
-        <div class="col">
-          <h3 class="itemCartTotal text-white">Total: 0</h3>
-        </div>
-        <div class="col d-flex justify-content-end">
-          <button class="btn btn-success">COMPRAR</button>
-        </div>
-      </div>
-      
-      </div>
-    </div>
-
-    <footer class="bg-dark p-3 mt-5">
-      <p class="text-center m-0 text-muted">Universidad Don bosco
-      </p>
-    </footer>
-
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    
+</div>
+</div>
 
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/scripts.js"></script>
-  </body>
+
+<script>
+  // Función para mostrar los productos disponibles
+  function mostrarProductos() {
+    const productosContainer = document.getElementById('productosContainer');
+    productosContainer.style.display = 'block';
+  }
+
+  // Función para reservar productos
+  function reservarProductos() {
+    const productosDisponibles = document.getElementById('productos_disponibles');
+    // Aquí puedes realizar alguna acción con los productos reservados si es necesario
+    alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
+    limpiarFormulario();
+  }
+
+  // Función para limpiar el formulario
+  function limpiarFormulario() {
+    document.getElementById('nombres').value = '';
+    document.getElementById('apellidos').value = '';
+    document.getElementById('correo').value = '';
+    document.getElementById('fecha_reserva').value = '';
+    document.getElementById('productos_disponibles').value = '';
+  }
+
+  // Agregar un event listener al botón "Ver Productos Disponibles"
+  const mostrarProductosBtn = document.getElementById('mostrarProductosBtn');
+  mostrarProductosBtn.addEventListener('click', mostrarProductos);
+
+  // Agregar un event listener al botón "Reservar Productos"
+  const reservarProductosBtn = document.getElementById('reservarProductosBtn');
+  reservarProductosBtn.addEventListener('click', reservarProductos);
+
+  // Función para reservar un producto
+  function reservarProducto(nombreProducto) {
+    const productosDisponibles = document.getElementById('productos_disponibles');
+    let productosReservados = productosDisponibles.value;
+    productosReservados += nombreProducto + ', ';
+    productosDisponibles.value = productosReservados;
+    alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
+  }
+
+  // Agregar event listeners a todos los botones de "Reservar"
+  const botonesReservar = document.querySelectorAll('.button');
+  botonesReservar.forEach(button => {
+    button.addEventListener('click', function() {
+      const nombreProducto = this.closest('.card').querySelector('.card-title').textContent;
+      reservarProducto(nombreProducto);
+    });
+  });
+</script>
+
+<script src="./js/scripts.js"></script>
+
+
 </html>
