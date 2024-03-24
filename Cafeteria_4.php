@@ -107,7 +107,7 @@
         role="tabpanel"
         aria-labelledby="pills-profile-tab"
       >
-        <h2 class="h4 m-4 text-white">Cafeteria 2</h2>
+        <h2 class="h4 m-4 text-white">Cafeteria 4</h2>
 
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
 
