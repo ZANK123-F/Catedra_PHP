@@ -10,7 +10,7 @@
 
 <body>
     <div class="container"> 
-    <a href="Comedores.php" class="logo"><img src="img/logo.png" alt="Logo"></a>       
+    <a href="index.php" class="logo"><img src="img/logo.png" alt="Logo"></a>       
         <h1>Sobre Nosotros</h1>
         <div class="containerTwo">
                 <p class="highlighted">

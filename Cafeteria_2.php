@@ -116,7 +116,7 @@
               <h5 class="card-title pt-2 text-center text-primary">Messi Campeon</h5>
               <img src="./img/platillo1.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un delicioso conjunto de alimentos que te prepararán para comenzar el día con energía.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -129,7 +129,7 @@
               <h5 class="card-title pt-2 text-center text-primary">Chongenga</h5>
               <img src="./img/platillo2.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Este desayuno incluye una variedad de opciones, desde huevos hasta panecillos y frutas frescas.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 3</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -142,7 +142,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Pupusas</h5>
               <img src="./img/platillo3.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un festín de capas de pasta, salsa de tomate, carne y queso derretido. 
+                  Esta lasaña es un clásico italiano que deleitará tu paladar con su rica combinación de sabores.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 4.50</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -155,7 +156,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Elote loco</h5>
               <img src="./img/platillo4.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un plato reconfortante que te hará sentir como en casa. Con sabrosos trozos de pollo, 
+                  verduras frescas</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 8.90</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -168,7 +170,7 @@
               <h5 class="card-title pt-2 text-center text-primary">VIVA MESSI</h5>
               <img src="./img/platillo5.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Una hamburguesa clásica con una jugosa carne de res, lechuga fresca, tomate, cebolla y queso derretido, todo ello servido entre dos suaves panes de hamburguesa. Un favorito de todos los tiempos que nunca defrauda.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 9.75</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -178,10 +180,10 @@
           </div>
           <div class="col d-flex justify-content-center mb-4">
             <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">VIVA EL COMUNISMO</h5>
+              <h5 class="card-title pt-2 text-center text-primary">VIVA CRISTO REY</h5>
               <img src="./img/platillo1.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un delicioso conjunto de alimentos que te prepararán para comenzar el día con energía.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 0.99</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -194,7 +196,7 @@
               <h5 class="card-title pt-2 text-center text-primary">Cancerbero</h5>
               <img src="./img/platillo2.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Este desayuno incluye una variedad de opciones, desde huevos hasta panecillos y frutas frescas.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 9.6</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -207,7 +209,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Rapunzel</h5>
               <img src="./img/platillo3.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un festín de capas de pasta, salsa de tomate, carne y queso derretido. Esta lasaña es un clásico 
+                  italiano que deleitará tu paladar con su rica combinación de sabores.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 0.11</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>

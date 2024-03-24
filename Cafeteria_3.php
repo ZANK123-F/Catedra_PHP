@@ -120,7 +120,8 @@
               <h5 class="card-title pt-2 text-center text-primary"> Desayuno</h5>
               <img src="./img/platillo1.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un delicioso conjunto de alimentos que te prepararán para comenzar el día con energía. 
+                  Este desayuno incluye una variedad de opciones, desde huevos hasta panecillos y frutas frescas.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -133,7 +134,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Sandwich</h5>
               <img src="./img/Sandwich.avif" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un clásico favorito que combina sabores y texturas en cada bocado. 
+                  Este sándwich está relleno de ingredientes frescos y deliciosos, perfecto para un almuerzo rápido o un refrigerio satisfactorio..</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 3</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -146,7 +148,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Sopa de pollo</h5>
               <img src="./img/Sopi.avif" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un plato reconfortante que te hará sentir como en casa. Con sabrosos trozos de pollo,
+                   verduras frescas y un caldo aromático, esta sopa es ideal para calentar el cuerpo y el alma en cualquier día.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 4.50</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -159,7 +162,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Lasaña</h5>
               <img src="./img/lasa.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Un festín de capas de pasta, salsa de tomate, carne y queso derretido. E
+                  sta lasaña es un clásico italiano que deleitará tu paladar con su rica combinación de sabores.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 8.90</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -172,7 +176,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Carne</h5>
               <img src="./img/carne.webp" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Una jugosa y tierna pieza de carne asada, sazonada a la perfección y lista para ser disfrutada. 
+                  Este plato es ideal para los amantes de la carne que buscan una experiencia culinaria satisfactoria.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 9.75</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -185,7 +190,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Hamburgesa</h5>
               <img src="./img/hamburger.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">: Una hamburguesa clásica con una jugosa carne de res, lechuga fresca, tomate, cebolla y queso derretido, 
+                  todo ello servido entre dos suaves panes de hamburguesa. Un favorito de todos los tiempos que nunca defrauda.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 0.99</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -198,7 +204,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Papas fritas</h5>
               <img src="./img/papas.png" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Deliciosas y crujientes papas fritas doradas a la perfección y sazonadas con sal.
+                   Estas papas fritas son el acompañamiento perfecto para cualquier comida o simplemente como un sabroso tentempié.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 9.6</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
@@ -211,7 +218,8 @@
               <h5 class="card-title pt-2 text-center text-primary">Frescos</h5>
               <img src="./img/frescos.webp" class="card-img-top" alt="...">
               <div class="card-body">
-                <p class="card-text text-black-50 description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text text-black-50 description">Una selección de frutas frescas y coloridas que satisfarán tus antojos de algo dulce y refrescante. 
+                  Desde manzanas hasta fresas y piñas, esta opción es ideal para aquellos que buscan una opción saludable y deliciosa.</p>
                 <h5 class="text-primary">Precio: <span class="precio">$ 0.11</span></h5>
                 <div class="d-grid gap-2">
                 <button  class="btn btn-primary button">Añadir a Carrito</button>
