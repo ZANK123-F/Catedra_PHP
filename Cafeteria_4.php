@@ -20,25 +20,31 @@
 </head>
 
 <body>
-  <header class="container-fluid bg-dark position-sticky top-0">
+<header class="container-fluid bg-dark position-sticky top-0">
     <ul class="nav nav-pills mb-3 py-3 container" id="pills-tab" role="tablist">
-      <li class="nav-item text-primary" role="presentation">
-        <a class="nav-link" id="pills-home-tab" href="Comedores.php" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productos</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Carrito</a>
-      </li>
+        <li class="nav-item text-primary" role="presentation">
+            <a class="nav-link" id="pills-home-tab" href="index.php" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productos</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" href="Reservacion3.php" role="tab" aria-controls="reserva" aria-selected="false">Reservar Evento de Producto</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Carrito</a>
+        </li>
     </ul>
-  </header>
+</header>
+
   <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
     Producto Añadido al carrito!
   </div>
+  
   <div class="alert container position-sticky top-0 alert-danger remove" role="alert">
     Producto removido!
   </div>
+
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       1
