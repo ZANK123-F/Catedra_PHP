@@ -10,11 +10,8 @@
   <style>
     body {
       background-image: url('https://s1.1zoom.me/big0/612/Mushrooms_Bibimbap_Fried_egg_Bokeh_Sliced_food_593325_1280x853.jpg');
-      /* Reemplaza 'tu-imagen-de-fondo.jpg' con la ruta de tu imagen */
       background-size: cover;
-      /* Ajusta la imagen de fondo para cubrir todo el cuerpo */
       background-position: center;
-      /* Centra la imagen de fondo */
       font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
     
