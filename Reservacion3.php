@@ -189,21 +189,19 @@
 
 
 <script>
-  // Función para mostrar los productos disponibles
+
   function mostrarProductos() {
     const productosContainer = document.getElementById('productosContainer');
     productosContainer.style.display = 'block';
   }
 
-  // Función para reservar productos
   function reservarProductos() {
     const productosDisponibles = document.getElementById('productos_disponibles');
-    // Aquí puedes realizar alguna acción con los productos reservados si es necesario
+  
     alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
     limpiarFormulario();
   }
 
-  // Función para limpiar el formulario
   function limpiarFormulario() {
     document.getElementById('nombres').value = '';
     document.getElementById('apellidos').value = '';
@@ -212,15 +210,14 @@
     document.getElementById('productos_disponibles').value = '';
   }
 
-  // Agregar un event listener al botón "Ver Productos Disponibles"
+  
   const mostrarProductosBtn = document.getElementById('mostrarProductosBtn');
   mostrarProductosBtn.addEventListener('click', mostrarProductos);
 
-  // Agregar un event listener al botón "Reservar Productos"
+  
   const reservarProductosBtn = document.getElementById('reservarProductosBtn');
   reservarProductosBtn.addEventListener('click', reservarProductos);
 
-  // Función para reservar un producto
   function reservarProducto(nombreProducto) {
     const productosDisponibles = document.getElementById('productos_disponibles');
     let productosReservados = productosDisponibles.value;
@@ -229,7 +226,6 @@
     alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
   }
 
-  // Agregar event listeners a todos los botones de "Reservar"
   const botonesReservar = document.querySelectorAll('.button');
   botonesReservar.forEach(button => {
     button.addEventListener('click', function() {
