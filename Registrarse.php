@@ -1,3 +1,29 @@
+<?php
+include 'Conexion.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $nombres = $_POST['nombre'];
+  $apellidos = $_POST['apellido'];
+  $correo = $_POST['correo'];
+  $contrasenia = $_POST['contrasenia'];
+  $rol = $_POST['rol'];
+
+  $sql = "INSERT INTO usuarios (nombres, apellidos, correo, contrasenia, idRol) 
+            VALUES ('$nombres', '$apellidos', '$correo', '$contrasenia', $rol)";
+  $conexion = new Conexion();
+  $guardo = mysqli_query($conexion->conn, $sql);
+  $conexion->cerrarConexion();
+  if ($guardo) {
+    // Registro exitoso, redirigir al inicio de sesión
+    header("Location: IniciarSesion.php");
+  } else {
+    // Si hay algún error en la consulta SQL, redirigir de nuevo al formulario de registro con un mensaje de error
+    header("Location: Registrarse.php?error=1");
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,19 +37,26 @@
   <style>
     body {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      margin: 0; /* Elimina el margen predeterminado del cuerpo */
-      padding: 0; /* Elimina el relleno predeterminado del cuerpo */
-      background-image: url('https://s1.1zoom.me/big0/612/Mushrooms_Bibimbap_Fried_egg_Bokeh_Sliced_food_593325_1280x853.jpg'); /* Reemplaza 'ruta/de/tu/imagen.jpg' con la ruta de tu imagen */
-      background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el cuerpo */
-      background-position: center; /* Centra la imagen de fondo */
+      margin: 0;
+      /* Elimina el margen predeterminado del cuerpo */
+      padding: 0;
+      /* Elimina el relleno predeterminado del cuerpo */
+      background-image: url('https://s1.1zoom.me/big0/612/Mushrooms_Bibimbap_Fried_egg_Bokeh_Sliced_food_593325_1280x853.jpg');
+      /* Reemplaza 'ruta/de/tu/imagen.jpg' con la ruta de tu imagen */
+      background-size: cover;
+      /* Ajusta la imagen de fondo para cubrir todo el cuerpo */
+      background-position: center;
+      /* Centra la imagen de fondo */
     }
 
     .container {
-      padding: 20px; /* Añade un poco de espacio alrededor del formulario */
+      padding: 20px;
+      /* Añade un poco de espacio alrededor del formulario */
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.7); /* Añade un fondo semi-transparente al formulario */
+      background-color: rgba(255, 255, 255, 0.7);
+      /* Añade un fondo semi-transparente al formulario */
       padding: 20px;
       border-radius: 10px;
     }
@@ -53,9 +86,9 @@
               <label for="rol" class="form-label">Rol en la UDB:</label>
               <select class="form-select" id="rol" name="rol" required>
                 <option value="">Seleccionar...</option>
-                <option value="docente">Docente</option>
-                <option value="empleado">Empleado</option>
-                <option value="estudiante">Estudiante</option>
+                <option value="1">Docente</option>
+                <option value="2">Estudiante</option>
+                <option value="3">Empleado</option>
               </select>
             </div>
             <div class="mb-3">

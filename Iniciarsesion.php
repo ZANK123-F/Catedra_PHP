@@ -1,3 +1,43 @@
+<?php
+session_start();
+include 'Conexion.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $correo = $_POST['correo'];
+  $contrasenia = $_POST['contrasenia'];
+
+  $conexion = new Conexion();
+  $sql = "SELECT * FROM usuarios WHERE correo = '$correo' AND contrasenia = '$contrasenia'";
+  $result = mysqli_query($conexion->conn, $sql);
+  $conexion->cerrarConexion();
+
+  if (mysqli_num_rows($result) == 1) {
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['usuario_id'] = $row['IdUsuario']; // Guardar el ID del usuario en la sesión
+
+    // Redireccionar a la página de inicio según el rol
+    switch ($row['idRol']) {
+      case 1:
+        header("Location: docente/index.php");
+        break;
+      case 2:
+        header("Location: alumno/index.php");
+        break;
+      case 3:
+        header("Location: empleado/index.php");
+        break;
+      default:
+        // En caso de un rol no reconocido, redirigir a una página de error
+        header("Location: error.php");
+        break;
+    }
+  } else {
+    // Si las credenciales son incorrectas, redirigir de nuevo al formulario de inicio de sesión
+    header("Location: IniciarSesion.php?error=1");
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,7 +54,7 @@
       background-position: center;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
-    
+
     .container {
       padding: 20px;
     }
@@ -38,7 +78,8 @@
     /* Estilo para los botones */
     .btn {
       width: 48%;
-      border-width: 2px; /* Grosor del borde */
+      border-width: 2px;
+      /* Grosor del borde */
     }
   </style>
 </head>

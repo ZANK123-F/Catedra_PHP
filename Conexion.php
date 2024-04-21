@@ -1,19 +1,26 @@
 <?php
-$servername = "localhost";
-$database = "cafeteriaudb";
-$username = "root";
-$password = "";
+class Conexion
+{
+    public $servername = "localhost";
+    public $database = "cafeteriaudb";
+    public $username = "root";
+    public $password = "";
+    public $conn;
 
+    public function __construct()
+    {
+        $this->abrirConexion();
+    }
+    public function abrirConexion()
+    {
+        $this->conn = mysqli_connect($this->servername, $this->username, $this->password, $this->database);
+        if (!$this->conn) {
+            die("Conexion fallida por down: " . mysqli_connect_error());
+        }
+    }
 
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-
-if (!$conn) {
-    die("Conexion fallida por down: " . mysqli_connect_error());
+    public function cerrarConexion()
+    {
+        mysqli_close($this->conn);
+    }
 }
-
-echo "Conexion exitosa";
-
-mysqli_close($conn);
-
-?>
