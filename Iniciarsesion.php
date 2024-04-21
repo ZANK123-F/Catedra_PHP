@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
-    $_SESSION['usuario_id'] = $row['IdUsuario']; // Guardar el ID del usuario en la sesión
+    $_SESSION['usuario_id'] = $row['IdUsuario']; 
 
-    // Redireccionar a la página de inicio según el rol
+
     switch ($row['idRol']) {
       case 1:
         header("Location: docente/index.php");
@@ -27,12 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: empleado/index.php");
         break;
       default:
-        // En caso de un rol no reconocido, redirigir a una página de error
+      
         header("Location: error.php");
         break;
     }
   } else {
-    // Si las credenciales son incorrectas, redirigir de nuevo al formulario de inicio de sesión
+
     header("Location: IniciarSesion.php?error=1");
   }
 }

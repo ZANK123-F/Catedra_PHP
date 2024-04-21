@@ -14,11 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $guardo = mysqli_query($conexion->conn, $sql);
   $conexion->cerrarConexion();
   if ($guardo) {
-    // Registro exitoso, redirigir al inicio de sesión
+   
     header("Location: IniciarSesion.php");
   } else {
-    // Si hay algún error en la consulta SQL, redirigir de nuevo al formulario de registro con un mensaje de error
-    header("Location: Registrarse.php?error=1");
+     header("Location: Registrarse.php?error=1");
   }
 }
 ?>
@@ -86,9 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <label for="rol" class="form-label">Rol en la UDB:</label>
               <select class="form-select" id="rol" name="rol" required>
                 <option value="">Seleccionar...</option>
-                <option value="1">Docente</option>
-                <option value="2">Estudiante</option>
-                <option value="3">Empleado</option>
+                <option value="1">Empleado</option>
+                <option value="2">Docente</option>
+                <option value="3">Estudiante</option>
               </select>
             </div>
             <div class="mb-3">
