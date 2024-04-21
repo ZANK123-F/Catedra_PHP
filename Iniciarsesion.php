@@ -18,13 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     switch ($row['idRol']) {
       case 1:
-        header("Location: docente/index.php");
+        header("Location: empleado/index.php");
         break;
       case 2:
-        header("Location: alumno/index.php");
+        header("Location: docente/index.php");
         break;
       case 3:
-        header("Location: empleado/index.php");
+        header("Location: alumno/index.php");
         break;
       default:
       
