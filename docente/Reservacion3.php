@@ -33,7 +33,7 @@
           aria-selected="true">Home</a>
 
       <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="pills-profile-tab" href="Cafeteria_1.php" role="tab"
+        <a class="nav-link active" id="pills-profile-tab" href="Cafeteria_3.php" role="tab"
           aria-controls="pills-profile" aria-selected="false">Productos</a>
       </li>
 
@@ -179,52 +179,69 @@
 
 
     <script>
-    function mostrarProductos() {
-      const productosContainer = document.getElementById('productosContainer');
-      productosContainer.style.display = 'block';
-    }
+  // Función para mostrar los productos disponibles
+  function mostrarProductos() {
+    const productosContainer = document.getElementById('productosContainer');
+    productosContainer.style.display = 'block';
+  }
 
-    function reservarProductos() {
-      const productosDisponibles = document.getElementById('productos_disponibles');
+  // Función para reservar productos
+  function reservarProductos() {
+    const nombres = document.getElementById('nombres').value;
+    const apellidos = document.getElementById('apellidos').value;
+    const correo = document.getElementById('correo').value;
+    const fechaReserva = document.getElementById('fecha_reserva').value;
+    const productosDisponibles = document.getElementById('productos_disponibles').value;
 
+    // Validación de campos vacíos
+    if (!nombres || !apellidos || !correo || !fechaReserva || !productosDisponibles) {
+      alert('Llenar los campos solicitados para completar la reserva');
+    } else {
+      // Aquí puedes realizar alguna acción con los datos del formulario si es necesario
       alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
       limpiarFormulario();
     }
+  }
 
-    function limpiarFormulario() {
-      document.getElementById('nombres').value = '';
-      document.getElementById('apellidos').value = '';
-      document.getElementById('correo').value = '';
-      document.getElementById('fecha_reserva').value = '';
-      document.getElementById('productos_disponibles').value = '';
-    }
+  // Función para limpiar el formulario
+  function limpiarFormulario() {
+    document.getElementById('nombres').value = '';
+    document.getElementById('apellidos').value = '';
+    document.getElementById('correo').value = '';
+    document.getElementById('fecha_reserva').value = '';
+    document.getElementById('productos_disponibles').value = '';
+  }
 
+  // Agregar un event listener al botón "Ver Productos Disponibles"
+  const mostrarProductosBtn = document.getElementById('mostrarProductosBtn');
+  mostrarProductosBtn.addEventListener('click', mostrarProductos);
 
-    const mostrarProductosBtn = document.getElementById('mostrarProductosBtn');
-    mostrarProductosBtn.addEventListener('click', mostrarProductos);
+  // Agregar un event listener al botón "Reservar Productos"
+  const reservarProductosBtn = document.getElementById('reservarProductosBtn');
+  reservarProductosBtn.addEventListener('click', reservarProductos);
 
+  // Función para reservar un producto (simulada)
+  function reservarProducto(nombreProducto) {
+    const productosDisponibles = document.getElementById('productos_disponibles');
+    let productosReservados = productosDisponibles.value;
+    productosReservados += nombreProducto + ', ';
+    productosDisponibles.value = productosReservados;
+    alert('su pedido a sido agregado a los productos reservados');
+  }
 
-    const reservarProductosBtn = document.getElementById('reservarProductosBtn');
-    reservarProductosBtn.addEventListener('click', reservarProductos);
-
-    function reservarProducto(nombreProducto) {
-      const productosDisponibles = document.getElementById('productos_disponibles');
-      let productosReservados = productosDisponibles.value;
-      productosReservados += nombreProducto + ', ';
-      productosDisponibles.value = productosReservados;
-      alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
-    }
-
-    const botonesReservar = document.querySelectorAll('.button');
-    botonesReservar.forEach(button => {
-      button.addEventListener('click', function() {
-        const nombreProducto = this.closest('.card').querySelector('.card-title').textContent;
-        reservarProducto(nombreProducto);
-      });
+  // Agregar event listeners a todos los botones de "Reservar"
+  const botonesReservar = document.querySelectorAll('.button');
+  botonesReservar.forEach(button => {
+    button.addEventListener('click', function() {
+      const nombreProducto = this.closest('.card').querySelector('.card-title').textContent;
+      reservarProducto(nombreProducto);
     });
-    </script>
+  });
 
-    <script src="./js/scripts.js"></script>
+  
+</script>
+
+    <script src="../js/scripts.js"></script>
 
 
 </html>

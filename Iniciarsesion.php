@@ -2,6 +2,8 @@
 session_start();
 include 'Conexion.php';
 
+$mensaje_error = ''; // Variable para almacenar el mensaje de error
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $correo = $_POST['correo'];
   $contrasenia = $_POST['contrasenia'];
@@ -15,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = mysqli_fetch_assoc($result);
     $_SESSION['usuario_id'] = $row['IdUsuario']; 
 
-
     switch ($row['idRol']) {
       case 1:
         header("Location: empleado/index.php");
@@ -27,13 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: alumno/index.php");
         break;
       default:
-      
         header("Location: error.php");
         break;
     }
   } else {
-
-    header("Location: IniciarSesion.php?error=1");
+    $mensaje_error = "El usuario o la contraseña son incorrectos, vuelva a intentarlo.";
   }
 }
 ?>
@@ -90,6 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="col-lg-6">
         <div class="card shadow-lg p-4">
           <h2 class="mb-4">Inicio de Sesión</h2>
+          <?php if ($mensaje_error): ?>
+            <div class="alert alert-danger" role="alert">
+              <?php echo $mensaje_error; ?>
+            </div>
+          <?php endif; ?>
           <form action="IniciarSesion.php" method="post">
             <div class="mb-3">
               <label for="correo" class="form-label">Correo Electrónico:</label>

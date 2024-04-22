@@ -4,74 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="stiles.css">
   <title>Reservacion de Productos</title>
-
-
-  <link 
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-
-
-
-    <link rel="stylesheet" href="css/styles.css/img." />
-    <style>
+  <link rel="stylesheet" href="stiles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
     .card-img-top {
-            height: 200px;
-            object-fit: cover; 
-        }
-        </style>
-
+      height: 200px;
+      object-fit: cover; 
+    }
+  </style>
 </head>
 <body style="background-color: #24303c;">
 
 <header class="container-fluid bg-dark position-sticky top-0">
-      <ul
-        class="nav nav-pills mb-3 py-3 container"
-        id="pills-tab"
-        role="tablist"
-      >
-        <li class="nav-item text-primary" role="presentation">
-        <a
-  class="nav-link"
-  id="pills-home-tab"
-  href="index.php"
-  role="tab"
-  aria-controls="pills-home"
-  aria-selected="true"
-  >Home</a>
+  <ul class="nav nav-pills mb-3 py-3 container" id="pills-tab" role="tablist">
+    <li class="nav-item text-primary" role="presentation">
+      <a class="nav-link" id="pills-home-tab" href="index.php" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="pills-profile-tab" href="Cafeteria_1.php" role="tab" aria-controls="pills-profile" aria-selected="false">Productos</a>
+    </li>
+  </ul>
+</header>
 
-  <li class="nav-item" role="presentation">
-  <a
-    class="nav-link active"
-    id="pills-profile-tab"
-    href="Cafeteria_1.php" 
-    role="tab"
-    aria-controls="pills-profile"
-    aria-selected="false"
-    >Productos</a
-  >
-</li>
-
-      </ul>
-    </header>
-
-  <section class="form-register">
-    <h4>Reserva de Productos</h4>
-    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-    <input class="controls" type="text" name="correo" id="correo" placeholder="Ingrese su carnet">
-    <input class="controls" type="date" name="fecha_reserva" id="fecha_reserva" placeholder="Fecha de Reserva">
-
-    <input class="controls" type="text" name="productos_disponibles" id="productos_disponibles" placeholder="Productos disponibles">
-    <button id="mostrarProductosBtn" class="botons">Ver Productos Disponibles</button>
-    <button id="reservarProductosBtn" class="botons">Reservar Productos</button>
-
-    
-  </section>
+<section class="form-register">
+  <h4>Reserva de Productos</h4>
+  <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+  <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+  <input class="controls" type="text" name="correo" id="correo" placeholder="Ingrese su correo">
+  <input class="controls" type="date" name="fecha_reserva" id="fecha_reserva" placeholder="Fecha de Reserva">
+  <input class="controls" type="text" name="productos_disponibles" id="productos_disponibles" placeholder="Productos disponibles">
+  <button id="mostrarProductosBtn" class="botons">Ver Productos Disponibles</button>
+  <button id="reservarProductosBtn" class="botons">Reservar Productos</button>
+</section>
 
 
 
@@ -253,10 +218,20 @@
 
   // Función para reservar productos
   function reservarProductos() {
-    const productosDisponibles = document.getElementById('productos_disponibles');
-    // Aquí puedes realizar alguna acción con los productos reservados si es necesario
-    alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
-    limpiarFormulario();
+    const nombres = document.getElementById('nombres').value;
+    const apellidos = document.getElementById('apellidos').value;
+    const correo = document.getElementById('correo').value;
+    const fechaReserva = document.getElementById('fecha_reserva').value;
+    const productosDisponibles = document.getElementById('productos_disponibles').value;
+
+    // Validación de campos vacíos
+    if (!nombres || !apellidos || !correo || !fechaReserva || !productosDisponibles) {
+      alert('Llenar los campos solicitados para completar la reserva');
+    } else {
+      // Aquí puedes realizar alguna acción con los datos del formulario si es necesario
+      alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
+      limpiarFormulario();
+    }
   }
 
   // Función para limpiar el formulario
@@ -276,13 +251,13 @@
   const reservarProductosBtn = document.getElementById('reservarProductosBtn');
   reservarProductosBtn.addEventListener('click', reservarProductos);
 
-  // Función para reservar un producto
+  // Función para reservar un producto (simulada)
   function reservarProducto(nombreProducto) {
     const productosDisponibles = document.getElementById('productos_disponibles');
     let productosReservados = productosDisponibles.value;
     productosReservados += nombreProducto + ', ';
     productosDisponibles.value = productosReservados;
-    alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
+    alert('su pedido a sido agregado a los productos reservados');
   }
 
   // Agregar event listeners a todos los botones de "Reservar"
@@ -293,8 +268,9 @@
       reservarProducto(nombreProducto);
     });
   });
-</script>
 
+  
+</script>
 <script src="./js/scripts.js"></script>
 
 

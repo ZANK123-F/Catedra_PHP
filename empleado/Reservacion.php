@@ -245,10 +245,20 @@
 
   // Función para reservar productos
   function reservarProductos() {
-    const productosDisponibles = document.getElementById('productos_disponibles');
-    // Aquí puedes realizar alguna acción con los productos reservados si es necesario
-    alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
-    limpiarFormulario();
+    const nombres = document.getElementById('nombres').value;
+    const apellidos = document.getElementById('apellidos').value;
+    const correo = document.getElementById('correo').value;
+    const fechaReserva = document.getElementById('fecha_reserva').value;
+    const productosDisponibles = document.getElementById('productos_disponibles').value;
+
+    // Validación de campos vacíos
+    if (!nombres || !apellidos || !correo || !fechaReserva || !productosDisponibles) {
+      alert('Llenar los campos solicitados para completar la reserva');
+    } else {
+      // Aquí puedes realizar alguna acción con los datos del formulario si es necesario
+      alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
+      limpiarFormulario();
+    }
   }
 
   // Función para limpiar el formulario
@@ -268,13 +278,13 @@
   const reservarProductosBtn = document.getElementById('reservarProductosBtn');
   reservarProductosBtn.addEventListener('click', reservarProductos);
 
-  // Función para reservar un producto
+  // Función para reservar un producto (simulada)
   function reservarProducto(nombreProducto) {
     const productosDisponibles = document.getElementById('productos_disponibles');
     let productosReservados = productosDisponibles.value;
     productosReservados += nombreProducto + ', ';
     productosDisponibles.value = productosReservados;
-    alert('Su Reserva ha sido Guardada. Reclame su pedido en el comedor. Gracias');
+    alert('su pedido a sido agregado a los productos reservados');
   }
 
   // Agregar event listeners a todos los botones de "Reservar"
@@ -285,7 +295,9 @@
       reservarProducto(nombreProducto);
     });
   });
-  </script>
+
+  
+</script>
 
   <script src="../js/scripts.js"></script>
 

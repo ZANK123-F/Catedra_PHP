@@ -6,7 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $apellidos = $_POST['apellido'];
   $correo = $_POST['correo'];
   $contrasenia = $_POST['contrasenia'];
+  $confirmar_contrasenia = $_POST['confirmar_contrasenia'];
   $rol = $_POST['rol'];
+
+  // Verifica si las contraseñas coinciden
+  if ($contrasenia !== $confirmar_contrasenia) {
+    header("Location: Registrarse.php?error=2"); // Redirige con un código de error
+    exit(); // Sale del script
+  }
 
   $sql = "INSERT INTO usuarios (nombres, apellidos, correo, contrasenia, idRol) 
             VALUES ('$nombres', '$apellidos', '$correo', '$contrasenia', $rol)";
@@ -14,14 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $guardo = mysqli_query($conexion->conn, $sql);
   $conexion->cerrarConexion();
   if ($guardo) {
-   
+    session_start(); // Inicia la sesión para mostrar el mensaje de registro exitoso
+    $_SESSION['mensaje'] = "El usuario ha sido registrado correctamente"; // Establece el mensaje en la variable de sesión
     header("Location: IniciarSesion.php");
+    exit(); // Sale del script
   } else {
      header("Location: Registrarse.php?error=1");
+     exit(); // Sale del script
   }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -72,6 +81,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="col-lg-6">
         <div class="card shadow-lg p-4">
           <h2 class="mb-4">Registro de Usuario</h2>
+          <?php
+          // Muestra el mensaje de error si es que existe
+          if (isset($_GET['error'])) {
+            if ($_GET['error'] == 1) {
+              echo '<div class="alert alert-danger" role="alert">Hubo un error al registrar el usuario.</div>';
+            } elseif ($_GET['error'] == 2) {
+              echo '<div class="alert alert-danger" role="alert">Las contraseñas no coinciden.</div>';
+            }
+          }
+          ?>
           <form action="Registrarse.php" method="post">
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre:</label>

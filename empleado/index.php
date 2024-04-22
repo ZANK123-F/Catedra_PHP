@@ -24,7 +24,7 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="Sobre_Nosotros.php">Sobre Nosotros</a></li>
-                    <li><a href="Iniciarsesion.php">Iniciar Sesion</a></li>
+                    <li><a href="../index.php">Cerrar Sesion</a></li>
             </nav>
         </div>
         <div class="header-content container">

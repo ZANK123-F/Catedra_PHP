@@ -29,7 +29,7 @@
 
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productosss</a>
+        <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productos</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link" href="Reservacion.php" role="tab" aria-controls="reserva" aria-selected="false">Reservar Evento de Producto</a>

@@ -32,7 +32,7 @@
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productosss</a>
+          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productos</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link" href="Reservacion.php" role="tab" aria-controls="reserva" aria-selected="false">Reservar
@@ -281,7 +281,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
   </script>
-  <script src="./js/scripts.js"></script>
+  <script src="../js/scripts.js"></script>
    
 </body>
 
