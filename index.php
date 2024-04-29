@@ -45,8 +45,8 @@
                     <p>
                         Disfruta de las delicias de la UDB
                     </p>
-                    <a href="Cafeteria_1.php" class="btn-1">Comedor 1</a>
-                    <a href="Cafeteria_2.php" class="btn-1">Comedor 2</a>
+                    <a href="javascript:void(0)" onclick="mostrarAlerta()" class="btn-1">Comedor 1</a>
+                    <a href="javascript:void(0)" onclick="mostrarAlerta()" class="btn-1">Comedor 2</a>
                 </div>
                 <div class="information-a1">
                     <img src="img/cafeteria2.jpg" alt="">
@@ -57,12 +57,12 @@
                     <img src="img/cafeteria1.png" alt="">
                 </div>
                 <div class="information-c1">
-                    <h3>Comedores sur</h3>
+                    <h3>Comedores Sur</h3>
                     <p>
                         Disfruta de las delicias de la UDB
                     </p>
-                    <a href="Cafeteria_3.php" class="btn-1">Comedor 3</a>
-                    <a href="Cafeteria_4.php" class="btn-1">Comedor 4</a>
+                    <a href="javascript:void(0)" onclick="mostrarAlerta()" class="btn-1">Comedor 3</a>
+                    <a href="javascript:void(0)" onclick="mostrarAlerta()" class="btn-1">Comedor 4</a>
                 </div>
             </div>
         </div>
@@ -84,5 +84,11 @@
             </div>
         </div>
     </Footer>
+
+    <script>
+        function mostrarAlerta() {
+            alert("No puedes acceder a la información de este comedor si no te registras primero...Bendiciones");
+        }
+    </script>
 </body>
 </html>

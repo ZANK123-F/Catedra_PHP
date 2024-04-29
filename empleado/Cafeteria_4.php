@@ -1,3 +1,120 @@
+<?php
+include 'Conexion.php';
+
+function obtenerProductos() {
+    // Crear una nueva instancia de la clase Conexion
+    $conexion = new Conexion();
+
+    // Consultar los productos en la base de datos
+    $sql = "SELECT * FROM productos";
+    $result = $conexion->conn->query($sql);
+
+    // Verificar si hay resultados
+    if ($result->num_rows > 0) {
+        // Inicializar una variable para almacenar el HTML de los productos
+        $productosHTML = '';
+
+        // Iterar sobre los resultados y construir el HTML para cada producto
+        while ($row = $result->fetch_assoc()) {
+            $titulo = $row['titulo'];
+            $imagen = $row['imagen'];
+            $descripcion = $row['descripcion'];
+            $precio = $row['precio'];
+
+            // Construir el HTML para el producto
+            $productoHTML = "
+                <div class='col d-flex justify-content-center mb-4'>
+                    <div class='card shadow mb-1 bg-ligth rounded' style='width: 20rem;'>
+                        <h5 class='card-title pt-2 text-center text-primary'>$titulo</h5>
+                        <img src='$imagen' class='card-img-top' alt='...'>
+                        <div class='card-body'>
+                            <p class='card-text text-black-50 description'>$descripcion</p>
+                            <h5 class='text-primary'>Precio: <span class='precio'>$ $precio</span></h5>
+                            <div class='d-grid gap-2'>
+                                <button class='btn btn-primary button'>Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ";
+
+            // Concatenar el HTML del producto al HTML general de productos
+            $productosHTML .= $productoHTML;
+        }
+
+        // Retornar el HTML de todos los productos
+        return $productosHTML;
+    } else {
+        // Si no hay resultados, retornar un mensaje indicando que no hay productos
+        return "No se encontraron productos.";
+    }
+}
+
+// Verificar si se ha enviado el formulario para agregar un nuevo producto
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validar los datos recibidos
+    $errors = array();
+
+    // Verificar si el campo 'titulo' está presente y no está vacío
+    if (empty($_POST['titulo'])) {
+        $errors[] = "El campo 'Título' es requerido.";
+    }
+    // Verificar si el campo 'imagen' está presente y no está vacío
+    if (empty($_POST['imagen'])) {
+        $errors[] = "El campo 'URL de la Imagen' es requerido.";
+    }
+    // Verificar si el campo 'categoria' está presente y no está vacío
+    if (empty($_POST['categoria'])) {
+        $errors[] = "El campo 'Categoría' es requerido.";
+    }
+    // Verificar si el campo 'descripcion' está presente y no está vacío
+    if (empty($_POST['descripcion'])) {
+        $errors[] = "El campo 'Descripción' es requerido.";
+    }
+    // Verificar si el campo 'precio' está presente y no está vacío
+    if (empty($_POST['precio'])) {
+        $errors[] = "El campo 'Precio' es requerido.";
+    }
+
+    // Si hay errores, mostrarlos y detener el proceso
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo $error . "<br>";
+        }
+        exit; // Detener la ejecución del script
+    }
+
+    // Si no hay errores, procesar los datos
+    // Crear una nueva instancia de la clase Conexion
+    $conexion = new Conexion();
+
+    // Obtener los datos del formulario
+    $titulo = $_POST['titulo'];
+    $imagen = $_POST['imagen'];
+    $categoria = $_POST['categoria'];
+    $descripcion = $_POST['descripcion'];
+    $precio = $_POST['precio'];
+
+    // Preparar la consulta SQL de inserción
+    $sql = "INSERT INTO productos (titulo, imagen, categoria, descripcion, precio) 
+            VALUES ('$titulo', '$imagen', '$categoria', '$descripcion', $precio)";
+
+    // Ejecutar la consulta
+    if ($conexion->conn->query($sql) === TRUE) {
+        // Producto agregado correctamente
+        // Puedes redirigir a alguna página de éxito o mostrar un mensaje
+        echo "Producto agregado correctamente.";
+    } else {
+        // Error al agregar el producto
+        // Puedes redirigir a alguna página de error o mostrar un mensaje
+        echo "Error al agregar el producto: " . $conexion->conn->error;
+    }
+
+    // Cerrar la conexión
+    $conexion->cerrarConexion();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +125,8 @@
   <meta name="theme-color" content="#bla" />
   <title>Ventas de Alimentos</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
   <link rel="stylesheet" href="/css/styles.css/img." />
   <style>
@@ -16,31 +134,45 @@
       height: 200px;
       object-fit: cover;
     }
+    #btnMostrarModalAgregarProducto {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+  }
+
+  /* Establece un tamaño específico para los botones dentro de las tarjetas de producto */
+  .button {
+    width: 100%; /* Ancho completo dentro de la tarjeta */
+  }
   </style>
 </head>
 
-<body>
-<header class="container-fluid bg-dark position-sticky top-0">
+<body>  
+  <header class="container-fluid bg-dark position-sticky top-0">
     <ul class="nav nav-pills mb-3 py-3 container" id="pills-tab" role="tablist">
-        <li class="nav-item text-primary" role="presentation">
-            <a class="nav-link" id="pills-home-tab" href="index.php" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productos</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" href="Reservacion4.php" role="tab" aria-controls="reserva" aria-selected="false">Reservar Evento de Producto</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Carrito</a>
-        </li>
+      <li class="nav-item text-primary" role="presentation">
+        <a class="nav-link" id="pills-home-tab" href="index.php" role="tab" aria-controls="pills-home"
+          aria-selected="true">Home</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Productos</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" href="Reservacion4.php" role="tab" aria-controls="reserva" aria-selected="false">Reservar
+          Evento de Producto</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button"
+          role="tab" aria-controls="pills-contact" aria-selected="false">Carrito</a>
+      </li>
     </ul>
-</header>
+  </header>
 
   <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
-    Producto Añadido al carrito!
+    Producto Añadido al carritos!
   </div>
-  
   <div class="alert container position-sticky top-0 alert-danger remove" role="alert">
     Producto removido!
   </div>
@@ -50,114 +182,13 @@
       1
     </div>
     <div class="tab-pane fade show active container" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <h2 class="h4 m-4 text-white">Cafeteria 4</h2>
+      <h2 class="h4 m-4 text-white">Cafetería 4</h2>
       <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Café & Pan Fresco - Solo $1.50</h5>
-            <img src="https://cdn.pixabay.com/photo/2015/07/12/14/26/coffee-842020_1280.jpg?text=Plato+1" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Disfruta de un delicioso café y pan fresco por solo $1.50. ¡El desayuno ideal para comenzar tu día!</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 1.50</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Hamburguesa Clásica - $1.25</h5>
-            <img src="https://cdn.pixabay.com/photo/2017/09/02/13/38/burger-2707320_1280.jpg?text=Plato+2" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">¡Puro sabor a solo $1.25! Disfruta de nuestra hamburguesa en cualquier momento.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 1.25</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Combo Pupusas & Café - $1.75</h5>
-            <img src="../img/cafereria4_producto3.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Tres pupusas calientes y un café por solo $1.75. ¡El sabor de El Salvador en tu paladar!</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 1.75</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Combo Hotdog & Soda - $2.00</h5>
-            <img src="../img/cafeteria4_producto4.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">¡Un clásico que nunca falla! Disfruta de un hotdog completo y una soda refrescante por solo $2.00.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 2.00</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Almuerzo Carne Asada - $3.25</h5>
-            <img src="../img/cafeteria4_producto5.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Disfruta de un almuerzo completo con carne asada, arroz, ensalada fresca y una bebida por solo $3.25.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 3.25</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Desayuno Típico - $2.00</h5>
-            <img src="../img/cafereria4_producto6.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Un desayuno tradicional con huevo, frijoles molidos y plátano por solo $2.00.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 2.00</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Trio de Panqueques - $1.75</h5>
-            <img src="../img/cafereria4_producto7.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Tres panqueques dorados y esponjosos a un precio dulce de solo $1.75.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 1.75</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Variedad de Sodas en Lata - $0.80</h5>
-            <img src="../img/cafereria4_producto8.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Refresca tu día con una soda en lata, elige tu sabor favorito por solo $0.80.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 0.80</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php echo obtenerProductos(); ?>
       </div>
+      <button class="btn btn-primary btn-sm fixed-bottom m-3" id="btnMostrarModalAgregarProducto" data-bs-toggle="modal" data-bs-target="#modalAgregarProducto">Agregar Producto</button>
     </div>
+
     <div class="tab-pane fade carrito" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
       <br>
       <table class="table table-dark table-hover">
@@ -170,30 +201,123 @@
           </tr>
         </thead>
         <tbody class="tbody">
-
-
-
+          <!-- Aquí se mostrarán los productos añadidos al carrito -->
         </tbody>
       </table>
       <br><br>
       <div class="row mx-4">
         <div class="col">
-          <h3 class="itemCartTotal text-black">Total: 0</h3>
+          <h3 class="itemCartTotal text-white">Total: 0</h3>
         </div>
         <div class="col d-flex justify-content-end">
           <button class="btn btn-success">COMPRAR</button>
         </div>
       </div>
-
     </div>
   </div>
+
   <footer class="bg-dark p-3 mt-5">
-    <p class="text-center m-0 text-muted">Universidad Don bosco
-    </p>
+    <p class="text-center m-0 text-muted">Universidad Don bosco</p>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
+
+  <!-- Agrega este formulario modal al final de tu cuerpo HTML, antes de la etiqueta de cierre </body> -->
+
+  <div class="modal fade" id="modalAgregarProducto" tabindex="-1" aria-labelledby="modalAgregarProductoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalAgregarProductoLabel">Agregar Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="titulo" class="form-label">Título</label>
+              <input type="text" class="form-control" id="titulo" name="titulo" required>
+            </div>
+            <div class="mb-3">
+              <label for="imagen" class="form-label">URL de la Imagen</label>
+              <input type="url" class="form-control" id="imagen" name="imagen" required>
+            </div>
+            <div class="mb-3">
+              <label for="categoria" class="form-label">Categoría</label>
+                <select class="form-select" id="categoria" name="categoria" required>
+                  <option value="">Seleccionar...</option>
+                  <option value="Granos">Granos</option>
+                  <option value="Verduras">Verduras</option>
+                  <option value="Frutas">Frutas</option>
+                  <option value="Productos lácteos">Productos lácteos</option>
+                  <option value="Proteínas">Proteínas</option>
+                  <option value="Bebidas">Bebidas</option>
+                  <option value="Snack">Snack</option>
+                </select>
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="precio" class="form-label">Precio</label>
+              <input type="number" class="form-control" id="precio" name="precio" min="0" step="0.01" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Agregar Producto</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Además, agrega este script al final de tu cuerpo HTML, antes de la etiqueta de cierre </body> -->
+  <script>
+    // Manejar el envío del formulario para agregar un nuevo producto
+    document.getElementById('formAgregarProducto').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar el comportamiento de envío predeterminado
+
+      // Recolectar los valores del formulario
+      const titulo = document.getElementById('titulo').value;
+      const imagen = document.getElementById('imagen').value;
+      const descripcion = document.getElementById('descripcion').value;
+      const precio = document.getElementById('precio').value;
+
+      // Crear el HTML para el nuevo producto
+      const nuevoProductoHTML = `
+        <div class="col d-flex justify-content-center mb-4">
+          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
+            <h5 class="card-title pt-2 text-center text-primary">${titulo}</h5>
+            <img src="${imagen}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text text-black-50 description">${descripcion}</p>
+              <h5 class="text-primary">Precio: <span class="precio">$ ${precio}</span></h5>
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Agregar el nuevo producto a la lista de productos
+      document.querySelector('.row.row-cols-sm-1').insertAdjacentHTML('beforeend', nuevoProductoHTML);
+
+      // Cerrar el modal después de agregar el producto
+      $('#modalAgregarProducto').modal('hide');
+
+      // Limpiar el formulario después de agregar el producto
+      document.getElementById('formAgregarProducto').reset();
+    });
+  </script>
   <script src="../js/scripts.js"></script>
 </body>
-
 </html>

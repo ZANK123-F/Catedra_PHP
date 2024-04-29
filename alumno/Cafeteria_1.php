@@ -1,3 +1,57 @@
+<?php
+include 'Conexion.php';
+
+function obtenerProductos() {
+    // Crear una nueva instancia de la clase Conexion
+    $conexion = new Conexion();
+
+    // Consultar los productos en la base de datos
+    $sql = "SELECT * FROM productos";
+    $result = $conexion->conn->query($sql);
+
+    // Verificar si hay resultados
+    if ($result->num_rows > 0) {
+        // Inicializar una variable para almacenar el HTML de los productos
+        $productosHTML = '';
+
+        // Iterar sobre los resultados y construir el HTML para cada producto
+        while ($row = $result->fetch_assoc()) {
+            $titulo = $row['titulo'];
+            $imagen = $row['imagen'];
+            $descripcion = $row['descripcion'];
+            $precio = $row['precio'];
+
+            // Construir el HTML para el producto
+            $productoHTML = "
+                <div class='col d-flex justify-content-center mb-4'>
+                    <div class='card shadow mb-1 bg-ligth rounded' style='width: 20rem;'>
+                        <h5 class='card-title pt-2 text-center text-primary'>$titulo</h5>
+                        <img src='$imagen' class='card-img-top' alt='...'>
+                        <div class='card-body'>
+                            <p class='card-text text-black-50 description'>$descripcion</p>
+                            <h5 class='text-primary'>Precio: <span class='precio'>$ $precio</span></h5>
+                            <div class='d-grid gap-2'>
+                                <button class='btn btn-primary button'>Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ";
+
+            // Concatenar el HTML del producto al HTML general de productos
+            $productosHTML .= $productoHTML;
+        }
+
+        // Retornar el HTML de todos los productos
+        return $productosHTML;
+    } else {
+        // Si no hay resultados, retornar un mensaje indicando que no hay productos
+        return "No se encontraron productos.";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,22 +67,23 @@
 
   <link rel="stylesheet" href="/css/styles.css/img." />
   <style>
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    
+  .button {
+    width: 100%; /* Ancho completo dentro de la tarjeta */
   }
   </style>
 </head>
 
-<body>
+<body>  
   <header class="container-fluid bg-dark position-sticky top-0">
     <ul class="nav nav-pills mb-3 py-3 container" id="pills-tab" role="tablist">
       <li class="nav-item text-primary" role="presentation">
         <a class="nav-link" id="pills-home-tab" href="index.php" role="tab" aria-controls="pills-home"
           aria-selected="true">Home</a>
-
-
-
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
@@ -38,15 +93,12 @@
         <a class="nav-link" href="Reservacion.php" role="tab" aria-controls="reserva" aria-selected="false">Reservar
           Evento de Producto</a>
       </li>
-
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button"
           role="tab" aria-controls="pills-contact" aria-selected="false">Carrito</a>
       </li>
     </ul>
   </header>
-
-
 
   <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
     Producto Añadido al carritos!
@@ -59,187 +111,12 @@
     <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       1
     </div>
-    <div class="tab-pane fade show active container" id="pills-profile" role="tabpanel"
-      aria-labelledby="pills-profile-tab">
-      <h2 class="h4 m-4 text-white">Cafeteria 1</h2>
-
+    <div class="tab-pane fade show active container" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <h2 class="h4 m-4 text-white">Cafetería 1</h2>
       <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary"> Desayuno</h5>
-            <img src="../img/desayuno.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Un delicioso desayuno para empezar el día con energía..</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 3.50</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Sandwich</h5>
-            <img src="../img/sadwich1.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Un delicioso sandwich con ingredientes frescos.b</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 1.00</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Burritos</h5>
-            <img src="../img/burrito.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Deliciosos burritos mexicanos rellenos de carne y frijoles.
-              </p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 3.50</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Lasaña</h5>
-            <img src="../img/lasagna.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Deliciosa lasaña casera con capas de pasta, carne molida,
-                salsa de tomate y queso derretido.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 3.00</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Carne</h5>
-            <img src="../img/carne.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Delicioso filete de carne a la parrilla, perfectamente
-                sazonado y jugoso.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 4.00</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Hamburguesa</h5>
-            <img src="../img/hamburguesa.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Deliciosa hamburguesa casera con carne de primera calidad y
-                aderezos frescos.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 2.50</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Papas fritas</h5>
-            <img src="../img/papas.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Crujientes papas fritas doradas y sazonadas a la
-                perfección.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 1.25</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Frescos</h5>
-            <img src="../img/frescos1.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Refrescantes bebidas naturales hechas con frutas frescas y
-                deliciosas.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 0.50</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Sodas</h5>
-            <img src="../img/sodas.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Refrescantes bebidas carbonatadas en una variedad de
-                sabores.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 1.00</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Pupusas</h5>
-            <img src="../img/pupusas.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Deliciosas pupusas rellenas de queso, frijoles o carne,
-                acompañadas de curtido y salsa de tomate.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 0.50</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Tacos</h5>
-            <img src="../img/tacos.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Deliciosos tacos mexicanos de carne asada, pollo, cerdo o
-                pescado.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 3.50</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">Tortas</h5>
-            <img src="../img/tortas.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">Deliciosas tortas preparadas con pan fresco, rellenas de
-                carne, pollo, jamón, queso, aguacate, lechuga, y tomate.</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ 2.00</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <?php echo obtenerProductos(); ?>
       </div>
-
     </div>
-
 
     <div class="tab-pane fade carrito" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
       <br>
@@ -253,7 +130,7 @@
           </tr>
         </thead>
         <tbody class="tbody">
-
+          <!-- Aquí se mostrarán los productos añadidos al carrito -->
         </tbody>
       </table>
       <br><br>
@@ -265,14 +142,11 @@
           <button class="btn btn-success">COMPRAR</button>
         </div>
       </div>
-
-
     </div>
   </div>
 
   <footer class="bg-dark p-3 mt-5">
-    <p class="text-center m-0 text-muted">Universidad Don bosco
-    </p>
+    <p class="text-center m-0 text-muted">Universidad Don bosco</p>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -281,8 +155,71 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
   </script>
-  <script src="../js/scripts.js"></script>
-   
-</body>
 
+
+
+  <!-- Además, agrega este script al final de tu cuerpo HTML, antes de la etiqueta de cierre </body> -->
+  <script>
+    // Manejar el envío del formulario para agregar un nuevo producto
+    document.getElementById('formAgregarProducto').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar el comportamiento de envío predeterminado
+
+      // Recolectar los valores del formulario
+      const titulo = document.getElementById('titulo').value;
+      const imagen = document.getElementById('imagen').value;
+      const descripcion = document.getElementById('descripcion').value;
+      const precio = document.getElementById('precio').value;
+
+      // Crear el HTML para el nuevo producto
+      const nuevoProductoHTML = `
+        <div class="col d-flex justify-content-center mb-4">
+          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
+            <h5 class="card-title pt-2 text-center text-primary">${titulo}</h5>
+            <img src="${imagen}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text text-black-50 description">${descripcion}</p>
+              <h5 class="text-primary">Precio: <span class="precio">$ ${precio}</span></h5>
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Agregar el nuevo producto a la lista de productos
+      document.querySelector('.row.row-cols-sm-1').insertAdjacentHTML('beforeend', nuevoProductoHTML);
+
+      // Cerrar el modal después de agregar el producto
+      $('#modalAgregarProducto').modal('hide');
+
+      // Limpiar el formulario después de agregar el producto
+      document.getElementById('formAgregarProducto').reset();
+
+
+      function actualizarTotal() {
+  // Obtener todos los elementos de precio en el carrito
+  const precios = document.querySelectorAll('.precio');
+
+  // Inicializar la variable para el total
+  let total = 0;
+
+  // Iterar sobre todos los elementos de precio y sumar sus valores
+  precios.forEach((precio) => {
+    total += parseFloat(precio.innerText.replace('$', '').trim());
+  });
+
+  // Actualizar el contenido del elemento total en el DOM
+  document.getElementById('total').innerText = '$ ' + total.toFixed(2);
+}
+
+// Llamar a la función de actualización del total al cargar la página
+window.addEventListener('load', actualizarTotal);
+
+
+
+    });
+  </script>
+  <script src="../js/scripts.js"></script>
+</body>
 </html>
