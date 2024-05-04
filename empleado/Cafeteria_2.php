@@ -16,6 +16,7 @@ function obtenerProductos() {
 
         // Iterar sobre los resultados y construir el HTML para cada producto
         while ($row = $result->fetch_assoc()) {
+            $id = $row['id'];
             $titulo = $row['titulo'];
             $imagen = $row['imagen'];
             $descripcion = $row['descripcion'];
@@ -32,6 +33,8 @@ function obtenerProductos() {
                             <h5 class='text-primary'>Precio: <span class='precio'>$ $precio</span></h5>
                             <div class='d-grid gap-2'>
                                 <button class='btn btn-primary button'>Añadir a Carrito</button>
+                                <button class='btn btn-secondary mt-2 modificar-producto' data-id='$id'>Modificar</button>
+                                <button class='btn btn-danger mt-2 eliminar-producto' data-id='$id'>Eliminar</button>
                             </div>
                         </div>
                     </div>
@@ -119,10 +122,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#bla" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#bla">
   <title>Ventas de Alimentos</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -134,21 +137,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       height: 200px;
       object-fit: cover;
     }
-    #btnMostrarModalAgregarProducto {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
-  }
 
-  /* Establece un tamaño específico para los botones dentro de las tarjetas de producto */
-  .button {
-    width: 100%; /* Ancho completo dentro de la tarjeta */
-  }
+    #btnMostrarModalAgregarProducto {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      /* Asegura que el botón esté por encima de otros elementos */
+    }
+
+    /* Establece un tamaño específico para los botones dentro de las tarjetas de producto */
+    .button {
+      width: 100%;
+      /* Ancho completo dentro de la tarjeta */
+    }
   </style>
 </head>
 
-<body>  
+<body>
   <header class="container-fluid bg-dark position-sticky top-0">
     <ul class="nav nav-pills mb-3 py-3 container" id="pills-tab" role="tablist">
       <li class="nav-item text-primary" role="presentation">
@@ -278,46 +284,155 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
 
+  <!-- Además, agrega este formulario modal al final de tu cuerpo HTML, antes de la etiqueta de cierre </body> -->
 
-  <!-- Además, agrega este script al final de tu cuerpo HTML, antes de la etiqueta de cierre </body> -->
-  <script>
-    // Manejar el envío del formulario para agregar un nuevo producto
-    document.getElementById('formAgregarProducto').addEventListener('submit', function(event) {
-      event.preventDefault(); // Evitar el comportamiento de envío predeterminado
-
-      // Recolectar los valores del formulario
-      const titulo = document.getElementById('titulo').value;
-      const imagen = document.getElementById('imagen').value;
-      const descripcion = document.getElementById('descripcion').value;
-      const precio = document.getElementById('precio').value;
-
-      // Crear el HTML para el nuevo producto
-      const nuevoProductoHTML = `
-        <div class="col d-flex justify-content-center mb-4">
-          <div class="card shadow mb-1 bg-ligth rounded" style="width: 20rem;">
-            <h5 class="card-title pt-2 text-center text-primary">${titulo}</h5>
-            <img src="${imagen}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text text-black-50 description">${descripcion}</p>
-              <h5 class="text-primary">Precio: <span class="precio">$ ${precio}</span></h5>
-              <div class="d-grid gap-2">
-                <button class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-            </div>
+  <div class="modal fade" id="modalEliminarProducto" tabindex="-1" aria-labelledby="modalEliminarProductoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEliminarProductoLabel">Eliminar Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que deseas eliminar este producto?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmarEliminarProducto">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal de Modificación de Producto -->
+<div class="modal fade" id="modalModificarProducto" tabindex="-1" aria-labelledby="modalModificarProductoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalModificarProductoLabel">Modificar Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="modificar_producto.php" method="post" id="formModificarProducto">
+        <div class="modal-body">
+          <input type="hidden" id="idProductoModificar" name="idProducto">
+          <div class="mb-3">
+            <label for="tituloModificar" class="form-label">Título</label>
+            <input type="text" class="form-control" id="tituloModificar" name="titulo" required>
+          </div>
+          <div class="mb-3">
+            <label for="imagenModificar" class="form-label">URL de la Imagen</label>
+            <input type="url" class="form-control" id="imagenModificar" name="imagen" required>
+          </div>
+          <div class="mb-3">
+            <label for="categoriaModificar" class="form-label">Categoría</label>
+            <select class="form-select" id="categoriaModificar" name="categoria" required>
+              <option value="">Seleccionar...</option>
+              <option value="Granos">Granos</option>
+              <option value="Verduras">Verduras</option>
+              <option value="Frutas">Frutas</option>
+              <option value="Productos lácteos">Productos lácteos</option>
+              <option value="Proteínas">Proteínas</option>
+              <option value="Bebidas">Bebidas</option>
+              <option value="Snack">Snack</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="descripcionModificar" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcionModificar" name="descripcion" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="precioModificar" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precioModificar" name="precio" min="0" step="0.01" required>
           </div>
         </div>
-      `;
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Modificar Producto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
-      // Agregar el nuevo producto a la lista de productos
-      document.querySelector('.row.row-cols-sm-1').insertAdjacentHTML('beforeend', nuevoProductoHTML);
+<script>
+  // Este script debe ir al final de tu archivo HTML, justo antes de la etiqueta de cierre </body>
+  document.addEventListener('DOMContentLoaded', function() {
+    const modificarBotones = document.querySelectorAll('.modificar-producto');
+    const modalModificarProducto = new bootstrap.Modal(document.getElementById('modalModificarProducto'));
 
-      // Cerrar el modal después de agregar el producto
-      $('#modalAgregarProducto').modal('hide');
+    modificarBotones.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        // Aquí deberías obtener los datos actuales del producto usando AJAX o pasándolos directamente con PHP
 
-      // Limpiar el formulario después de agregar el producto
-      document.getElementById('formAgregarProducto').reset();
+        // Suponiendo que tienes los datos del producto, los asignarías a los campos del formulario
+        document.getElementById('idProductoModificar').value = id;
+        document.getElementById('tituloModificar').value = 'Titulo actual del producto';
+        // Repite para los otros campos...
+
+        modalModificarProducto.show();
+      });
+    });
+
+    // Manejar el envío del formulario de modificación
+    document.getElementById('formModificarProducto').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar el comportamiento de envío predeterminado del formulario
+
+      // Recolectar los valores del formulario
+      const formData = new FormData(this);
+
+      // Enviar los datos del formulario al servidor para actualizar el producto
+      fetch('modificar_producto.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        alert(data); // Mostrar mensaje de éxito o error
+        modalModificarProducto.hide(); // Cerrar el modal
+        location.reload(); // Recargar la página para ver los cambios
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const eliminarBotones = document.querySelectorAll('.eliminar-producto');
+        const modalEliminarProducto = new bootstrap.Modal(document.getElementById('modalEliminarProducto'));
+
+        eliminarBotones.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const confirmarEliminarProductoBtn = document.getElementById('confirmarEliminarProducto');
+
+                confirmarEliminarProductoBtn.addEventListener('click', function() {
+                    // Envía una solicitud para eliminar el producto con el ID correspondiente
+                    fetch(`eliminar_producto.php?id=${id}`, {
+                        method: 'DELETE'
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Recargar la página después de eliminar el producto
+                            window.location.reload();
+                        } else {
+                            // Manejar el caso de error
+                            console.error('Error al eliminar el producto');
+                        }
+                    })
+                    .catch(error => console.error('Error al eliminar el producto:', error));
+                });
+                modalEliminarProducto.show();
+            });
+        });
     });
   </script>
+ 
+
+  <!-- Además, agrega este script al final de tu cuerpo HTML, antes de la etiqueta de cierre </body> -->
   <script src="../js/scripts.js"></script>
 </body>
+
 </html>
